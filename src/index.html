@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="tink.skeleton">
+<html ng-app="tink.popover">
 <head>
   <meta charset="utf-8">
   <title>Tink module</title>
@@ -7,15 +7,62 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimum-scale=1.0">
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/tink-core/assets/tink/tink.css" />
   <!-- endbower -->
 </head>
 <body>
 
-<tink-skeleton data-text="Skeleton is working fine!"></tink-skeleton>
+<div class="col-xs-12">
+  <script type="text/ng-template" id="popContent.html">
+    <h1>This is pop 1</h1>
+  </script>
+  </div>
+  <div class="col-xs-12">
+    <p>
+      <button popover-placement="left" tink-popover tink-popover-group="g1"  tink-popover-template="popContent.html">top</button>
+    </p>
+  </div>
+  <div class="col-xs-12">
+    <p>
+      <button popover-placement="left" tink-popover tink-popover-group="g1" tink-popover-template="views/modal-template.html">top</button>
+    </p>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <p>
+      <button tink-popover="" tink-popover-place="left" tink-popover-align="center" tink-popover-template="popContent.html">Left Popover</button>
+    </p>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <p>
+      <button tink-popover="" tink-popover-place="top" tink-popover-align="left" tink-popover-template="popContent.html">Top Popover</button>
+    </p>
+  </div>
+
+  <div class="col-xs-12 col-md-3">
+    <p>
+      <button tink-popover="" tink-popover-place="bottom" tink-popover-align="right" tink-popover-template="popContent.html">Bottom Popover</button>
+    </p>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <p>
+      <button tink-popover="" tink-popover-place="right" tink-popover-align="center" tink-popover-template="popContent.html">Right Popover</button>
+    </p>
+  </div>
+  <button tink-popover="" tink-popover-place="top" tink-popover-align="center" tink-popover-template="popContent.html">Top Popover</button>
+</div>
 
 <!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 <!-- endbower -->
 
-<script src="scripts/directives/skeleton.js"></script>
+<script src="scripts/directives/tink-popover-angular.js"></script>
+
 </body>
 </html>

@@ -1,8 +1,8 @@
 {
-  "name": "tink-skeleton-angular",
+  "name": "tink-popover-angular",
   "version": "1.0.0",
   "main": [
-    "dist/tink-skeleton-angular.js"
+    "dist/tink-popover-angular.js"
   ],
   "ignore": [
     ".*",

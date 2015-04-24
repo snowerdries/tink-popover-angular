@@ -22,7 +22,7 @@ module.exports = function (grunt) {
     dist: 'dist',
     version: currentversion,
     module: require('./package.json').name,
-    domain: 'tink.skeleton'
+    domain: 'tink.popover'
   };
 
   // Define the configuration for all the tasks
