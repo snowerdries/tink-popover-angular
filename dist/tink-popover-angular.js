@@ -77,8 +77,9 @@
 
               $(document).bind('click',function(e){
                 var clicked = $(e.target).parents('.popover').last();
+                var group = $(e.target).attr('tink-popover-group');
                 if(isOpen && !childOf($(e.target).get(0),element.get(0)) && ($(e.target).get(0) !== element.get(0) || clicked.length > 0)){
-                  if(isOpen.get(0) !== clicked.get(0) &&  $(e.target).get(0) !== isOpen.get(0) ){
+                  if(isOpen.get(0) !== clicked.get(0) &&  $(e.target).get(0) !== isOpen.get(0) && attributes.tinkPopoverGroup !== group){
                     hide();
                   }
                 }
@@ -89,7 +90,7 @@
                 scope.$on('popover-open', function(event, args) {
 
                     var group = args.group;
-                    if(group === attributes.tinkPopoverGroup && isOpen && $(args.el).get(0) !== isOpen.get(0)){
+                    if(group !== attributes.tinkPopoverGroup && isOpen && $(args.el).get(0) !== isOpen.get(0)){
                       hide();
                     }
                 });
