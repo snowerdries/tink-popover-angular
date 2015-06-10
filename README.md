@@ -1,6 +1,6 @@
 # Tink popover Angular directive
 
-v1.0.1
+v1.0.2
 
 ## What is this repository for?
 
@@ -19,23 +19,27 @@ Tink is an in-house developed easy-to-use front-end framework for quick prototyp
 
 1. Go to the root of your project and type the following command in your terminal:
 
-  `bower install tink-popover-angular --save`
+   `bower install tink-popover-angular --save`
 
 2. Add the following files to your project:
 
-  `<link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />` (or one of the Tink themes)
+   `<link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />` (or one of the Tink themes)
 
-  `<script src="bower_components/tink-popover-angular/dist/tink-popover-angular.js"></script>`
+   `<script src="bower_components/tink-popover-angular/dist/tink-popover-angular.js"></script>`
+
+3. Add `tink.popover` to your app module's dependency.
+
+   `angular.module('myApp', ['tink.popover']);`
+
 
 
 ----------
 
 
+
 ## How to use
 
 ### tink-popover
-
-### Component
 
 To use this directive you have to add `tink-popover` to the element of your choice and assign the content to `tink-popover-template`.
 
@@ -52,6 +56,10 @@ Attr | Type | Default | Details
 tink-popover-place | `string` | `''` | Defines where the popover will show. Possible values are `top`, `left`, `right` or `bottom`.
 tink-popover-align | `string` | `''` | Alignment of the popover to the element. Possible values are `left`, `center`, `right`, `top` or `bottom.
 tink-popover-template | `string` | `''` | The url of the popover template.
+
+### Example
+
+A working example can be found in [the Tink documentation](http://tink.digipolis.be/#/docs/directives/popover#example).
 
 ## Contribution guidelines
 
