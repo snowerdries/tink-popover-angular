@@ -11,6 +11,7 @@ describe('tink-popover-angular', function() {
     $compile = _$compile_;
     $templateCache = _$templateCache_;
     sandboxEl = $('<div>').attr('id', 'sandbox').appendTo(bodyEl);
+    $templateCache.put('views/modal-template.html','testo');
   }));
 
   afterEach(function() {
@@ -40,7 +41,7 @@ describe('tink-popover-angular', function() {
       var element = compileDirective('click',{position:'left'});
       element.click();
       scope.$digest();
-      console.log(sandboxEl)
+      console.log(sandboxEl.find('.popover')[0])
     });
   });
 
