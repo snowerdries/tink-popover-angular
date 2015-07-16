@@ -41,7 +41,7 @@ describe('tink-popover-angular', function() {
       var element = compileDirective('click',{position:'left'});
       element.click();
       scope.$digest();
-      console.log(sandboxEl.find('.popover')[0])
+      expect(sandboxEl.find('.popover div').html()).toBe('testo');
     });
   });
 
