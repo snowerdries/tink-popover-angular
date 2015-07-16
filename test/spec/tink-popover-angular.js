@@ -4,13 +4,12 @@ describe('tink-popover-angular', function() {
   var bodyEl = $('body'), sandboxEl;
   var $compile, $templateCache, scope;
 
-  // beforeEach(module('tink'));
+  beforeEach(module('tink.popover'));
 
   beforeEach(inject(function (_$rootScope_, _$compile_, _$templateCache_) {
     scope = _$rootScope_.$new();
     $compile = _$compile_;
     $templateCache = _$templateCache_;
-    bodyEl.html('');
     sandboxEl = $('<div>').attr('id', 'sandbox').appendTo(bodyEl);
   }));
 
@@ -29,17 +28,20 @@ describe('tink-popover-angular', function() {
   }
 
   var templates = {
-    'default': {
+    'click': {
       scope: {},
-      element: ''
+      element: '<button popover-placement="left"  tink-popover-template="views/modal-template.html" tink-popover >Open tooltip</button>'
     }
   };
 
 
-  describe('default', function() {
-    it('should run this basic setup',function(){
+  describe('popup should show', function() {
+    it('on click',function(){
+      var element = compileDirective('click',{position:'left'});
+      element.click();
+      scope.$digest();
+      console.log(sandboxEl)
     });
   });
-
 
 });
