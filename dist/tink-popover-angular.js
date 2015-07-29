@@ -100,7 +100,7 @@
                 if(theTemplate !== null){
                   theTemplate.then(function(data){
                     if(isOpen === null){
-                      var elContent = $($compile(data)(scope));
+                      var elContent =$($compile('<div>'+data+'</div>')(scope));
                       var el =$($compile(popoverHtml())(scope));
                       el.css('position','absolute');
                       el.css('visibility','hidden');
