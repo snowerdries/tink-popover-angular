@@ -35,7 +35,6 @@
         theTemplate = haalTemplateOp(attrs.tinkPopoverTemplate);
       }
 
-
       return {
           post: function postLink( scope, element, attributes ) {
                 var placement = attributes.tinkPopoverPlace;
@@ -214,6 +213,8 @@
 
 
               function arrowCal(placement,align){
+                // show or don't show arrow
+                if (typeof scope.tinkArrow === 'undefined' || (typeof scope.tinkArrow !== 'undefined' && scope.tinkArrow === true)) {
                   var arrowCss = 'arrow-';
                   switch(placement){
                     case 'left':
@@ -247,11 +248,8 @@
                   }
                   scope.arrowPlacement = arrowCss;
                 }
-
-                // show or don't show arrow
-                if (typeof scope.tinkArrow === undefined || (typeof scope.tinkArrow !== undefined && scope.tinkArrow === true)) {
-                  arrowCal(placement,align);
-                }
+              }
+              arrowCal(placement,align);
 
               //calculate the position
               function calcPos(element,el,place,align,spacing){
@@ -364,7 +362,7 @@
                   var data = getPos(el,place,align,spacing);
                     el.css('top',data.top);
                     el.css('left',data.left);
-                    //arrowCal(data.place,data.align);
+                    arrowCal(data.place,data.align);
                 }
 
                 calcPostInside();
