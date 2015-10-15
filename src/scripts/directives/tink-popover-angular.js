@@ -37,6 +37,7 @@
           post: function postLink( scope, element, attributes ) {
                 var placement = attributes.tinkPopoverPlace;
                 var align = attributes.tinkPopoverAlign;
+                var noArrow = attributes.tinkPopoverNoArrow;
                 var trigger = 'click';
                 var spacing = 2;
 
@@ -210,42 +211,42 @@
 
             }
 
-            
-              function arrowCal(placement,align){
-                  var arrowCss = 'arrow-';
-                  switch(placement){
-                    case 'left':
-                      arrowCss = arrowCss + 'right';
-                      break;
-                    case 'right':
-                      arrowCss = arrowCss + 'left';
-                      break;
-                    case 'top':
-                      arrowCss = arrowCss + 'bottom';
-                      break;
-                    case 'bottom':
-                      arrowCss = arrowCss + 'top';
-                      break;
-                  }
 
-                  switch(align){
-                    case 'center':
-                      break;
-                    case 'top':
-                    case 'bottom':
-                      if(placement === 'right' || placement === 'left'){
-                        arrowCss = arrowCss + '-' + align;
-                      }
-                      break;
-                    case 'left':
-                    case 'right':
-                      if(placement === 'top' || placement === 'bottom'){
-                        arrowCss = arrowCss + '-' + align;
-                      }
-                  }
-                  scope.arrowPlacement = arrowCss;
-                }
-              arrowCal(placement,align);
+              // function arrowCal(placement,align){
+              //     var arrowCss = 'arrow-';
+              //     switch(placement){
+              //       case 'left':
+              //         arrowCss = arrowCss + 'right';
+              //         break;
+              //       case 'right':
+              //         arrowCss = arrowCss + 'left';
+              //         break;
+              //       case 'top':
+              //         arrowCss = arrowCss + 'bottom';
+              //         break;
+              //       case 'bottom':
+              //         arrowCss = arrowCss + 'top';
+              //         break;
+              //     }
+
+              //     switch(align){
+              //       case 'center':
+              //         break;
+              //       case 'top':
+              //       case 'bottom':
+              //         if(placement === 'right' || placement === 'left'){
+              //           arrowCss = arrowCss + '-' + align;
+              //         }
+              //         break;
+              //       case 'left':
+              //       case 'right':
+              //         if(placement === 'top' || placement === 'bottom'){
+              //           arrowCss = arrowCss + '-' + align;
+              //         }
+              //     }
+              //     scope.arrowPlacement = arrowCss;
+              //   }
+              // arrowCal(placement,align);
 
               //calculate the position
               function calcPos(element,el,place,align,spacing){
@@ -358,7 +359,7 @@
                   var data = getPos(el,place,align,spacing);
                     el.css('top',data.top);
                     el.css('left',data.left);
-                    arrowCal(data.place,data.align);
+                    // arrowCal(data.place,data.align);
                 }
 
                 calcPostInside();
