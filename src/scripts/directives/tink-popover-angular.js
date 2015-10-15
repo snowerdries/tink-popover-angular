@@ -8,6 +8,9 @@
   module.directive( 'tinkPopover', ['$q','$templateCache','$http','$compile','$timeout','$window','$rootScope',function ($q,$templateCache,$http,$compile,$timeout,$window,$rootScope) {
   return {
     restrict:'EA',
+    scope: {
+      tinkArrow:'='
+    },
     compile: function compile( tElement, attrs ) {
       var fetchPromises = {};
       //to retrieve a template;
@@ -37,10 +40,8 @@
           post: function postLink( scope, element, attributes ) {
                 var placement = attributes.tinkPopoverPlace;
                 var align = attributes.tinkPopoverAlign;
-                var noArrow = attributes.tinkPopoverNoArrow;
                 var trigger = 'click';
                 var spacing = 2;
-
 
                 var isOpen = null;
                 if(trigger === 'click'){
@@ -212,41 +213,45 @@
             }
 
 
-              // function arrowCal(placement,align){
-              //     var arrowCss = 'arrow-';
-              //     switch(placement){
-              //       case 'left':
-              //         arrowCss = arrowCss + 'right';
-              //         break;
-              //       case 'right':
-              //         arrowCss = arrowCss + 'left';
-              //         break;
-              //       case 'top':
-              //         arrowCss = arrowCss + 'bottom';
-              //         break;
-              //       case 'bottom':
-              //         arrowCss = arrowCss + 'top';
-              //         break;
-              //     }
+              function arrowCal(placement,align){
+                  var arrowCss = 'arrow-';
+                  switch(placement){
+                    case 'left':
+                      arrowCss = arrowCss + 'right';
+                      break;
+                    case 'right':
+                      arrowCss = arrowCss + 'left';
+                      break;
+                    case 'top':
+                      arrowCss = arrowCss + 'bottom';
+                      break;
+                    case 'bottom':
+                      arrowCss = arrowCss + 'top';
+                      break;
+                  }
 
-              //     switch(align){
-              //       case 'center':
-              //         break;
-              //       case 'top':
-              //       case 'bottom':
-              //         if(placement === 'right' || placement === 'left'){
-              //           arrowCss = arrowCss + '-' + align;
-              //         }
-              //         break;
-              //       case 'left':
-              //       case 'right':
-              //         if(placement === 'top' || placement === 'bottom'){
-              //           arrowCss = arrowCss + '-' + align;
-              //         }
-              //     }
-              //     scope.arrowPlacement = arrowCss;
-              //   }
-              // arrowCal(placement,align);
+                  switch(align){
+                    case 'center':
+                      break;
+                    case 'top':
+                    case 'bottom':
+                      if(placement === 'right' || placement === 'left'){
+                        arrowCss = arrowCss + '-' + align;
+                      }
+                      break;
+                    case 'left':
+                    case 'right':
+                      if(placement === 'top' || placement === 'bottom'){
+                        arrowCss = arrowCss + '-' + align;
+                      }
+                  }
+                  scope.arrowPlacement = arrowCss;
+                }
+
+                // show or don't show arrow
+                if (typeof scope.tinkArrow === undefined || (typeof scope.tinkArrow !== undefined && scope.tinkArrow === true)) {
+                  arrowCal(placement,align);
+                }
 
               //calculate the position
               function calcPos(element,el,place,align,spacing){
@@ -359,7 +364,7 @@
                   var data = getPos(el,place,align,spacing);
                     el.css('top',data.top);
                     el.css('left',data.left);
-                    // arrowCal(data.place,data.align);
+                    //arrowCal(data.place,data.align);
                 }
 
                 calcPostInside();
