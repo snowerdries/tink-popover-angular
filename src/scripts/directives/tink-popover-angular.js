@@ -14,7 +14,7 @@
     compile: function compile( tElement, attrs ) {
       var fetchPromises = {};
       //to retrieve a template;
-      function haalTemplateOp(template) {
+      function getTemplate(template) {
         // --- if the template already is in our app cache return it. //
         if (fetchPromises[template]){
           return fetchPromises[template];
@@ -32,7 +32,7 @@
       }
       var theTemplate = null;
       if(attrs.tinkPopoverTemplate){
-        theTemplate = haalTemplateOp(attrs.tinkPopoverTemplate);
+        theTemplate = getTemplate(attrs.tinkPopoverTemplate);
       }
 
       return {
@@ -117,8 +117,7 @@
                       el.css('top',-100);
                       el.css('left',-10);
 
-                        calcPos(element,el,placement,align,spacing);
-
+                      calcPos(element,el,placement,align,spacing);
 
                       if(attributes.tinkPopoverGroup){
                         $rootScope.$broadcast('popover-open', { group: attributes.tinkPopoverGroup,el:el });
