@@ -163,8 +163,16 @@
 
 
                 var porcent = {right:0.85,left:0.15,top:0.15,bottom:0.85};
-                var arrowHeight = 10;
-                var arrowWidth = 10;
+
+                // Default offset of the popover
+                var arrowHeight = 0;
+                var arrowWidth = 0;
+
+                // If the popover has an arrow, change the default offset
+                if (typeof scope.tinkArrow === 'undefined' || (typeof scope.tinkArrow !== 'undefined' && scope.tinkArrow === true)) {
+                  arrowHeight = 10;
+                  arrowWidth = 10;
+                }
 
                 var alignLeft = 0;
                 var alignTop = 0;
@@ -371,10 +379,10 @@
                 $timeout(function(){el.css('visibility','visible');},220);
               }
 
-          }
-      };
-    }
-  };
+            }
+        };
+      }
+    };
 
-}]);
+  }]);
 })();
