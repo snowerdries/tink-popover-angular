@@ -16,6 +16,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+## [1.0.5] - 2015-10-20
+
+### Fixed
+- Fixed an issue where an animation would start too early
+
+
+
 ## [1.0.4] - 2015-10-20
 
 ### Added

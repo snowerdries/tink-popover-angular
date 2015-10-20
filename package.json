@@ -1,7 +1,7 @@
 {
   "name": "tink-popover-angular",
   "description": "Tink popover Angular directive",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": {
     "type": "git",
     "url": "git@github.com:tinkkit/tink-popover-angular.git"
