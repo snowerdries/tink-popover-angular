@@ -169,7 +169,7 @@
                 var arrowWidth = 0;
 
                 // If the popover has an arrow, change the default offset
-                if (typeof scope.tinkArrow === 'undefined' || (typeof scope.tinkArrow !== 'undefined' && scope.tinkArrow === true)) {
+                if (typeof scope.tinkArrow === 'undefined' || scope.tinkArrow === true) {
                   arrowHeight = 10;
                   arrowWidth = 10;
                 }
@@ -221,7 +221,7 @@
 
               function arrowCal(placement,align){
                 // show or don't show arrow
-                if (typeof scope.tinkArrow === 'undefined' || (typeof scope.tinkArrow !== 'undefined' && scope.tinkArrow === true)) {
+                if (typeof scope.tinkArrow === 'undefined' || scope.tinkArrow === true) {
                   var arrowCss = 'arrow-';
                   switch(placement){
                     case 'left':
