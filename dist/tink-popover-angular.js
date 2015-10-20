@@ -8,10 +8,13 @@
   module.directive( 'tinkPopover', ['$q','$templateCache','$http','$compile','$timeout','$window','$rootScope',function ($q,$templateCache,$http,$compile,$timeout,$window,$rootScope) {
   return {
     restrict:'EA',
+    scope: {
+      tinkArrow:'='
+    },
     compile: function compile( tElement, attrs ) {
       var fetchPromises = {};
       //to retrieve a template;
-      function haalTemplateOp(template) {
+      function getTemplate(template) {
         // --- if the template already is in our app cache return it. //
         if (fetchPromises[template]){
           return fetchPromises[template];
@@ -29,9 +32,8 @@
       }
       var theTemplate = null;
       if(attrs.tinkPopoverTemplate){
-        theTemplate = haalTemplateOp(attrs.tinkPopoverTemplate);
+        theTemplate = getTemplate(attrs.tinkPopoverTemplate);
       }
-
 
       return {
           post: function postLink( scope, element, attributes ) {
@@ -39,7 +41,6 @@
                 var align = attributes.tinkPopoverAlign;
                 var trigger = 'click';
                 var spacing = 2;
-
 
                 var isOpen = null;
                 if(trigger === 'click'){
@@ -116,8 +117,7 @@
                       el.css('top',-100);
                       el.css('left',-10);
 
-                        calcPos(element,el,placement,align,spacing);
-
+                      calcPos(element,el,placement,align,spacing);
 
                       if(attributes.tinkPopoverGroup){
                         $rootScope.$broadcast('popover-open', { group: attributes.tinkPopoverGroup,el:el });
@@ -163,8 +163,16 @@
 
 
                 var porcent = {right:0.85,left:0.15,top:0.15,bottom:0.85};
-                var arrowHeight = 10;
-                var arrowWidth = 10;
+
+                // Default offset of the popover
+                var arrowHeight = 0;
+                var arrowWidth = 0;
+
+                // If the popover has an arrow, change the default offset
+                if (typeof scope.tinkArrow === 'undefined' || scope.tinkArrow === true) {
+                  arrowHeight = 10;
+                  arrowWidth = 10;
+                }
 
                 var alignLeft = 0;
                 var alignTop = 0;
@@ -210,8 +218,10 @@
 
             }
 
-            
+
               function arrowCal(placement,align){
+                // show or don't show arrow
+                if (typeof scope.tinkArrow === 'undefined' || scope.tinkArrow === true) {
                   var arrowCss = 'arrow-';
                   switch(placement){
                     case 'left':
@@ -245,6 +255,7 @@
                   }
                   scope.arrowPlacement = arrowCss;
                 }
+              }
               arrowCal(placement,align);
 
               //calculate the position
@@ -368,10 +379,11 @@
                 $timeout(function(){el.css('visibility','visible');},220);
               }
 
-          }
-      };
-    }
-  };
+            }
+        };
+      }
+    };
 
-}]);
-})();;
+  }]);
+})();
+;
