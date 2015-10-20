@@ -1,6 +1,6 @@
 # Tink popover Angular directive
 
-v1.0.3
+v1.0.4
 
 ## What is this repository for?
 
@@ -53,10 +53,10 @@ You can use the `tink-popover-place` and `tink-popover-align` options to positio
 
 Attr | Type | Default | Details
 --- | --- | --- | ---
+data-tink-popover-template | `string` | `''` | The url of the popover template.
 data-tink-popover-place | `string` | `''` | Defines where the popover will show. Possible values are `top`, `left`, `right` or `bottom`.
-data-tink-popover-align | `string` | `''` | Alignment of the popover to the element. Possible values are `left`, `center`, `right`, `top` or `bottom.
+data-tink-popover-align | `string` | `''` | Alignment of the popover to the element. Possible values are `left`, `center`, `right`, `top` or `bottom`.
 data-tink-arrow | `boolean` | `true` | Whether the popover arrow is shown or not.
-tink-popover-template | `string` | `''` | The url of the popover template.
 
 ### Example
 

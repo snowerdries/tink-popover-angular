@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
-## [1.0.4] - 2015-10-15
+## [1.0.4] - 2015-10-20
 
 ### Added
 - Added possibility to hide popover arrow
