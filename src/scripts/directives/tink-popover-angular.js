@@ -113,8 +113,8 @@
                     element.after(el);
                   }
 
-                  // el.css('top',-100);
-                  // el.css('left',-10);
+                  el.css('top',-100);
+                  el.css('left',-10);
 
                   calcPos(element,el,placement,align,spacing);
 
@@ -367,13 +367,12 @@
                 arrowCal(data.place,data.align);
               }
 
-              calcPostInside();
+              // calcPostInside();
 
               $timeout(function(){
                 calcPostInside();
-              },120);
-
-              el.css('visibility','visible');
+                el.css('visibility','visible');
+              },20);
 
               // Fix an early transition
               $timeout(function(){
@@ -388,3 +387,4 @@
 
   }]);
 })();
+;
