@@ -16,6 +16,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+## [1.0.6] - 2015-10-21
+
+### Fixed
+- Optimized the animation delay fix
+
+
+
 ## [1.0.5] - 2015-10-20
 
 ### Fixed

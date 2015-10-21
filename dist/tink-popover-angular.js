@@ -378,7 +378,7 @@
               // Fix an early transition
               $timeout(function(){
                 el.addClass('popover-transition');
-              },120);
+              },250);
             }
 
           }
