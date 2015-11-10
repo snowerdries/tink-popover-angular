@@ -1,6 +1,6 @@
 {
   "name": "tink-popover-angular",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": [
     "dist/tink-popover-angular.js"
   ],
