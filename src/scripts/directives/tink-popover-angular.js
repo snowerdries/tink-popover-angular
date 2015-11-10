@@ -8,9 +8,7 @@
   module.directive( 'tinkPopover', ['$q','$templateCache','$http','$compile','$timeout','$window','$rootScope',function ($q,$templateCache,$http,$compile,$timeout,$window,$rootScope) {
   return {
     restrict:'EA',
-    scope: {
-      tinkArrow:'='
-    },
+    scope: true,
     compile: function compile( tElement, attrs ) {
       var fetchPromises = {};
       //to retrieve a template;
@@ -40,6 +38,7 @@
 
           var placement = attributes.tinkPopoverPlace;
           var align = attributes.tinkPopoverAlign;
+          var arrow = attributes.tinkArrow;
           var trigger = 'click';
           var spacing = 2;
 
@@ -167,7 +166,7 @@
             var arrowWidth = 0;
 
             // If the popover has an arrow, change the default offset
-            if (typeof scope.tinkArrow === 'undefined' || scope.tinkArrow === true) {
+            if (typeof arrow === 'undefined' || arrow === 'true') {
               arrowHeight = 10;
               arrowWidth = 10;
             }
@@ -216,7 +215,7 @@
 
             function arrowCal(placement,align){
               // show or don't show arrow
-              if (typeof scope.tinkArrow === 'undefined' || scope.tinkArrow === true) {
+              if (typeof arrow === 'undefined' || arrow === 'true') {
                 var arrowCss = 'arrow-';
                 switch(placement){
                   case 'left':
@@ -387,4 +386,3 @@
 
   }]);
 })();
-;

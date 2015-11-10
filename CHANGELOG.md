@@ -16,6 +16,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+## [1.0.7] - 2015-11-10
+
+### Fixed
+- Fixed an issue where the Tink interactive table's scope would override that of the popover
+
+
+
 ## [1.0.6] - 2015-10-21
 
 ### Fixed
