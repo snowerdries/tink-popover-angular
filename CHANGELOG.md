@@ -14,7 +14,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Security
 -->
 
+## [1.0.7] - 2016-08-26
 
+### Fixed
+- fixed memmory leak
 
 ## [1.0.7] - 2015-11-10
 
