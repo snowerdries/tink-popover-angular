@@ -63,7 +63,6 @@
                   element.off('mouseleave');                  
                   $window.removeEventListener('resize', onresizefunc);
                   $window.removeEventListener('scroll', onscrollfunc);
-
               });
 
           var placement = attributes.tinkPopoverPlace;
