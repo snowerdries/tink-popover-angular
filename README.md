@@ -1,6 +1,6 @@
 # Tink popover Angular directive
 
-v1.0.7
+v1.0.8
 
 ## What is this repository for?
 
