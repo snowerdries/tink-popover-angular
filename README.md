@@ -1,12 +1,12 @@
-# Tink tooltip Angular directive
+# Tink popover Angular directive
 
-v2.0.6
+v1.0.8
 
 ## What is this repository for?
 
-The Tink tooltip Angular provides a scaffold for a directive or service that can easily work with Tink.
+The Tink popover Angular directive provides you with a nice popover component.
 
-Tink is an in-house developed easy-to-use front end framework for quick prototyping and simple deployment of all kinds of websites and apps, keeping a uniform and consistent look and feel.
+Tink is an in-house developed easy-to-use front-end framework for quick prototyping and simple deployment of all kinds of websites and apps, keeping a uniform and consistent look and feel.
 
 ## Setup
 
@@ -19,17 +19,17 @@ Tink is an in-house developed easy-to-use front end framework for quick prototyp
 
 1. Go to the root of your project and type the following command in your terminal:
 
-   `bower install tink-tooltip-angular --save`
+   `bower install tink-popover-angular --save`
 
 2. Add the following files to your project:
 
    `<link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />` (or one of the Tink themes)
 
-   `<script src="bower_components/tink-tooltip-angular/dist/tink-tooltip-angular.js"></script>`
+   `<script src="bower_components/tink-popover-angular/dist/tink-popover-angular.js"></script>`
 
-3. Add `tink.tooltip` to your app module's dependency.
+3. Add `tink.popover` to your app module's dependency.
 
-   `angular.module('myApp', ['tink.tooltip']);`
+   `angular.module('myApp', ['tink.popover']);`
 
 
 
@@ -39,22 +39,24 @@ Tink is an in-house developed easy-to-use front end framework for quick prototyp
 
 ## How to use
 
-### tink-tooltip
+### tink-popover
 
-To use this directive you have to add `tink-tooltip` to the element of your choice and assign the content to `tink-tooltip-template`.
+To use this directive you have to add `tink-popover` to the element of your choice and assign the content to `tink-popover-template`.
 
-You can use the `tink-tooltip-align` options to position the tooltip container to your liking.
+You can use the `tink-popover-place` and `tink-popover-align` options to position the popover container to your liking, however screen calculation will be applied to optimize the display of the popover, possibly overruling your set placement.
 
 ```html
-<button tink-tooltip="" tink-tooltip-align="bottom" tink-tooltip-template="views/tooltip-template.html">Open tooltip</button>
+<button tink-popover="" tink-popover-place="left" tink-popover-align="bottom" tink-popover-template="views/popover-template.html">Left Popover</button>
 ```
 
 ### Options
 
 Attr | Type | Default | Details
 --- | --- | --- | ---
-tink-tooltip-align | `string` | `''` | Alignment of the tooltip to the element. Possible values are `left`, `center`, `right`, `top` or `bottom.
-tink-tooltip-template | `string` | `''` | The url of the tooltip template.
+data-tink-popover-template | `string` | `''` | The url of the popover template.
+data-tink-popover-place | `string` | `''` | Defines where the popover will show. Possible values are `top`, `left`, `right` or `bottom`.
+data-tink-popover-align | `string` | `''` | Alignment of the popover to the element. Possible values are `left`, `center`, `right`, `top` or `bottom`.
+data-tink-arrow | `boolean` | `true` | Whether the popover arrow is shown or not.
 
 ### Example
 

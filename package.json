@@ -1,10 +1,10 @@
 {
-  "name": "tink-tooltip-angular",
-  "description": "Tink tooltip Angular directive",
-  "version": "2.0.6",
+  "name": "tink-popover-angular",
+  "description": "Tink popover Angular directive",
+  "version": "1.0.8",
   "repository": {
     "type": "git",
-    "url": "git@github.com:tinkkit/tink-tooltip-angular.git"
+    "url": "git@github.com:tinkkit/tink-popover-angular.git"
   },
   "dependencies": {
     "bower": "^1.3.12",
