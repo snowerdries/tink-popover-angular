@@ -1,8 +1,8 @@
 {
-  "name": "tink-popover-angular",
-  "version": "1.0.7",
+  "name": "tink-tooltip-angular",
+  "version": "2.0.6",
   "main": [
-    "dist/tink-popover-angular.js"
+    "dist/tink-tooltip-angular.js"
   ],
   "ignore": [
     ".*",

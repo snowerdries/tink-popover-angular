@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="tink.popover">
+<html ng-app="tink.tooltip">
 <head>
   <meta charset="utf-8">
   <title>Tink module</title>
@@ -10,50 +10,18 @@
   <link rel="stylesheet" href="bower_components/tink-core/dist/tink.css" />
   <!-- endbower -->
 </head>
-<body>
+<body ng-controller="ctrl">
 
-<div class="col-xs-12">
-  <script type="text/ng-template" id="popContent.html">
-    <h1>This is pop 1</h1>
-  </script>
-  </div>
-  <div class="col-xs-12">
-    <p>
-      <button popover-placement="left" tink-popover tink-popover-group="g1"  tink-popover-template="popContent.html">top</button>
-    </p>
-  </div>
-  <div class="col-xs-12">
-    <p>
-      <button popover-placement="left" tink-popover tink-popover-group="g1" tink-popover-template="views/modal-template.html">top</button>
-    </p>
-  </div>
-  <div class="col-xs-12 col-md-3">
-    <p>
-      <button tink-popover="" tink-popover-group="g6"  tink-popover-place="left" tink-popover-align="center" tink-popover-template="popContent.html" data-tink-arrow="true">Left Popover arrow true</button>
-    </p>
-  </div>
-  <div class="col-xs-12 col-md-3">
-    <p>
-      <button tink-popover=""  tink-popover-group="g2"  tink-popover-place="top" tink-popover-align="left" tink-popover-template="popContent.html">Top Popover</button>
-    </p>
-  </div>
-
-  <div class="col-xs-12 col-md-3">
-    <p>
-      <button tink-popover="" tink-popover-group="g3"  tink-popover-place="bottom" tink-popover-align="right" tink-popover-template="popContent.html">Bottom Popover</button>
-    </p>
-  </div>
-  <div class="col-xs-12 col-md-3">
-    <p>
-      <button tink-popover=""  tink-popover-group="g5"  tink-popover-place="top" tink-popover-align="center" tink-popover-template="popContent.html" data-tink-arrow="false">Top Popover arrow false</button>
-    </p>
-  </div>
-  <div class="col-xs-12 col-md-3">
-    <p>
-      <button tink-popover="" tink-popover-group="g4"  tink-popover-place="right" tink-popover-align="center" tink-popover-template="popContent.html">Right Popover</button>
-    </p>
+<div class="container margin-top">
+  <div class="row margin-top">
+    <button tink-tooltip="dd" ng-click="go()" tink-tooltip-trigger="hover" ng-disabled="num > 5" tink-tooltip-align="bottom">Open tooltip</button>
   </div>
 </div>
+
+<button ng-click="go()"> change</button>
+
+
+
 
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -66,7 +34,21 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <!-- endbower -->
 
-<script src="scripts/directives/tink-popover-angular.js"></script>
-
+<script src="scripts/directives/tooltip.js"></script>
+<script>
+var module;
+  try {
+    module = angular.module('tink.tooltip');
+  } catch (e) {
+    module = angular.module('tink.tooltip', []);
+  }
+  module.controller('ctrl',function($scope){
+    $scope.num = 4;
+    $scope.go = function(){
+      $scope.dis = !$scope.dis;
+      $scope.num = 6;
+    }
+  });
+</script>
 </body>
 </html>

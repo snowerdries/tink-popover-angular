@@ -1,4 +1,4 @@
-# Changelog Tink popover Angular directive
+# Changelog Tink Tooltip Angular directive
 
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
@@ -14,58 +14,48 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Security
 -->
 
-
-
-## [1.0.7] - 2015-11-10
+## [2.0.6] - 2015-10-07
 
 ### Fixed
-- Fixed an issue where the Tink interactive table's scope would override that of the popover
+- Fixed an issue where the tooltip would stay visible when an action button was disabled
 
 
 
-## [1.0.6] - 2015-10-21
-
-### Fixed
-- Optimized the animation delay fix
-
-
-
-## [1.0.5] - 2015-10-20
-
-### Fixed
-- Fixed an issue where an animation would start too early
-
-
-
-## [1.0.4] - 2015-10-20
-
-### Added
-- Added possibility to hide popover arrow
-
-
-
-## [1.0.3] - 2015-07-29
+## [2.0.5] - 2015-10-07
 
 ### Changed
-- Changed angular version to 1.4.3
+- Changed the angular version to 1.4.3
 
 
 
-## [1.0.2] - 2015-06-10
-
-### Changed
-- Updated documentation
-- Separated code license
-
-
-
-## [1.0.1] - 2015-05-29
+## [2.0.4] - 2015-07-29
 
 ### Fixed
-- Fixed groups
+- Fixed a minor bug
 
 
 
-## [1.0.0] - 2015-04-23
+## [2.0.3] - 2015-07-03
+
+### Changed
+- Changed the way the tooltip becomes visible
+
+
+
+## [2.0.2] - 2015-07-02
+
+### Fixed
+- Fixed bower file
+
+
+
+## [2.0.1] - 2015-07-01
+
+### Fixed
+- Added missing dist files
+
+
+
+## [2.0.0] - 2015-06-30
 
 Initial release
