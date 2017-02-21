@@ -22,7 +22,7 @@ module.exports = function (grunt) {
     dist: 'dist',
     version: currentversion,
     module: require('./package.json').name,
-    domain: 'tink.popover'
+    domain: 'tink.tooltip'
   };
 
   // Define the configuration for all the tasks
@@ -313,7 +313,7 @@ module.exports = function (grunt) {
         'copy:styles'
       ],
       dist: [
-        'sass',
+        
         'svgmin'
       ]
     },
@@ -402,7 +402,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'karma:build',
+    
     'clean',
     'ngtemplates',
     'replace',

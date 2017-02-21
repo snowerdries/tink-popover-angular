@@ -34,36 +34,16 @@
       }
 
       return {
-          post: function postLink(scope, element, attributes) {
+        post: function postLink( scope, element, attributes ) {
+          scope.$on('$destroy', function() {
+                element.off('click');
+                element.off('mouseenter');
+                element.off('mouseleave');
+                $(document).off('click');
+                $window.removeEventListener('resize', onresizefunc);
+                $window.removeEventListener('scroll', onscrollfunc);
 
-              var timeoutResize = null;
-              var onresizefunc = function () {
-                  if (isOpen !== null) {
-                      $timeout.cancel(timeoutResize);
-                      timeoutResize = $timeout(function () {
-                          // setPos(isOpen,placement,align,spacing);
-                          calcPos(element, isOpen, placement, align, spacing);
-                      }, 250);
-                  }
-              };
-
-              var onscrollfunc = function () {
-                  if (isOpen !== null) {
-                      $timeout.cancel(timeoutResize);
-                      timeoutResize = $timeout(function () {
-                          // setPos(isOpen,placement,align,spacing);
-                          calcPos(element, isOpen, placement, align, spacing);
-                      }, 450);
-                  }
-              };
-
-              scope.$on('$destroy', function() {
-                  element.off('click');
-                  element.off('mouseenter');
-                  element.off('mouseleave');                  
-                  $window.removeEventListener('resize', onresizefunc);
-                  $window.removeEventListener('scroll', onscrollfunc);
-              });
+            });
 
           var placement = attributes.tinkPopoverPlace;
           var align = attributes.tinkPopoverAlign;
@@ -156,11 +136,27 @@
             }
           }
 
+          var timeoutResize = null;
 
+          $window.addEventListener('resize', function() {
+            if(isOpen!== null){
+              $timeout.cancel( timeoutResize);
+              timeoutResize = $timeout(function(){
+               // setPos(isOpen,placement,align,spacing);
+                calcPos(element,isOpen,placement,align,spacing);
+              },250);
+            }
+          }, true);
 
-          $window.addEventListener('resize', onresizefunc, true);
-
-          $window.addEventListener('scroll', onscrollfunc, true);
+          $window.addEventListener('scroll', function() {
+            if(isOpen!== null){
+              $timeout.cancel( timeoutResize);
+              timeoutResize = $timeout(function(){
+                // setPos(isOpen,placement,align,spacing);
+                calcPos(element,isOpen,placement,align,spacing);
+              },450);
+            }
+          }, true);
 
           function hide(){
             if(isOpen !== null){
@@ -399,4 +395,3 @@
 
   }]);
 })();
-;
