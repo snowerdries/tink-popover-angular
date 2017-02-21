@@ -35,6 +35,15 @@
 
       return {
         post: function postLink( scope, element, attributes ) {
+          scope.$on('$destroy', function() {
+                element.off('click');
+                element.off('mouseenter');
+                element.off('mouseleave');
+                $(document).off('click');
+                $window.removeEventListener('resize', onresizefunc);
+                $window.removeEventListener('scroll', onscrollfunc);
+
+            });
 
           var placement = attributes.tinkPopoverPlace;
           var align = attributes.tinkPopoverAlign;
