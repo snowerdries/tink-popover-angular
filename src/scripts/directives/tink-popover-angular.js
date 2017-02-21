@@ -35,6 +35,15 @@
 
       return {
           post: function postLink(scope, element, attributes) {
+              scope.$on('$destroy', function() {
+                  element.off('click');
+                  element.off('mouseenter');
+                  element.off('mouseleave');
+                  $(document).off('click');
+                  $window.removeEventListener('resize', onresizefunc);
+                  $window.removeEventListener('scroll', onscrollfunc);
+
+              });
 
               var timeoutResize = null;
               var onresizefunc = function () {
@@ -55,15 +64,7 @@
                           calcPos(element, isOpen, placement, align, spacing);
                       }, 450);
                   }
-              };
-
-              scope.$on('$destroy', function() {
-                  element.off('click');
-                  element.off('mouseenter');
-                  element.off('mouseleave');                  
-                  $window.removeEventListener('resize', onresizefunc);
-                  $window.removeEventListener('scroll', onscrollfunc);
-              });
+              };              
 
           var placement = attributes.tinkPopoverPlace;
           var align = attributes.tinkPopoverAlign;
